@@ -1,0 +1,190 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Python Resources</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="UA-165295929-1"
+                  id="sg-python.github.io"
+                  title="Python Resources"
+                  environment="web"
+                  feedback-link="https://sg-python.github.io">
+    
+      <google-codelab-step label="Introductory Programming using Python" duration="0">
+        <aside class="warning"><ul>
+<li>Technical – 30%</li>
+<li>Concept and Approach – 30%</li>
+<li>Creativity and Uniqueness – 30%</li>
+<li>Presentation – 10%</li>
+</ul>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 1 Code" duration="0">
+        
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Tips and Tricks" duration="0">
+        <p><a href="https://www.youtube.com/watch?v=C-gEQdGVXbk" target="_blank">https://www.youtube.com/watch?v=C-gEQdGVXbk</a> </p>
+<p>10 Python Tips and Tricks for Writing Better Code</p>
+<p>Tips 1: Ternary Operator</p>
+<pre><code># usual if else statement
+if condition == True:
+    x = 1
+else: 
+    x = 0
+
+# single line alternative
+condition = True
+x = 1 if condition else 0
+
+print(x)</code></pre>
+<p>Tips 2: Using separator for long numbers</p>
+<pre><code># the underscore helps in counting the number of 0
+# it has no effect on the calculation
+num1 = 10_000_000_000
+num2 = 100_000_000
+
+total = num1 + num2
+
+# simple printing
+print(total)
+
+# string formatting
+# separating the numbers with ,
+print(f&#39;{total:,}&#39;)</code></pre>
+<p>Tips 3: Using Context Manager</p>
+<ul>
+<li>Do not have to deal with the issue of forgetting to close file</li>
+<li>The same is applicable for database</li>
+</ul>
+<pre><code>with open(&#39;test.txt&#39;, &#39;r&#39;) as f:
+   file_contents = f.read()
+  
+words = file_contents.split(&#39; &#39;)
+word_count = len(words)
+print(word_count)
+</code></pre>
+<p>Tips 4: Using Enumerate to get item and index</p>
+<ul>
+<li>Do not need to create a counter variable</li>
+</ul>
+<pre><code>names = [&#34;Peter&#34;, &#34;Alan&#34;, &#34;John&#34;]
+
+for index, name in enumerate(names):
+   print(f&#39;{index} - {name}&#39;)
+
+# --------------------------------
+# output/ result
+0 - Peter
+1 - Alan
+2 - John
+</code></pre>
+<p>Tips 5: Using zip to go over 2 or more list of data</p>
+<pre><code>names = [&#34;Peter&#34;, &#34;Alan&#34;, &#34;John&#34;]
+
+ages = [5, 10, 32]
+
+for name, age in zip(names, ages):
+   print(f&#39;{name} is {age} year old&#39;)
+
+# --------------------------------
+# output/ result
+Peter is 5 year old
+Alan is 10 year old
+John is 32 year old
+</code></pre>
+<p>Tips 6: Unpacking of tuple</p>
+<pre><code>a, b, *c = (1, 2, 3, 4, 5)
+
+print(a)
+print(b)
+print(c)
+
+# --------------------------------
+# output/ result
+1
+2
+[3, 4, 5]
+
+# explanation
+# *c will store the remaining values
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Easter Eggs" duration="0">
+        <p>Printing Hello World</p>
+<pre><code>&gt;&gt;&gt; import __hello__
+Hello world!
+
+</code></pre>
+<p>Zen of Python</p>
+<pre><code>&gt;&gt;&gt; import this
+The Zen of Python, by Tim Peters
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren&#39;t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you&#39;re Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it&#39;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let&#39;s do more of those!
+
+
+</code></pre>
+<p>Experience Antigravity</p>
+<pre><code>&gt;&gt;&gt; import antigravity
+</code></pre>
+<p class="image-container"><img style="width: 436.38px" src="img\198e37aee0df937e.png"></p>
+<p>Braces</p>
+<pre><code>from __future__ import braces
+  File &#34;&lt;input&gt;&#34;, line 1
+SyntaxError: not a chance
+
+</code></pre>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>

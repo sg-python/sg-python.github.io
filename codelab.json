@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2020-05-09T05:50:16Z",
+  "id": "sg-python.github.io",
+  "duration": 0,
+  "title": "Python Resources",
+  "authors": "TAN KOK CHENG",
+  "summary": "C390 Administrative Instruction for Portfolio Development Module",
+  "source": "1drMu3BbweOEYBRKChYA5sKFibU5z27djPJoRQSrACss",
+  "theme": "web",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "Web"
+  ],
+  "tags": [
+    "kiosk",
+    "web"
+  ],
+  "feedback": "https://sg-python.github.io",
+  "ga": "UA-165295929-1",
+  "url": "sg-python.github.io"
+}
