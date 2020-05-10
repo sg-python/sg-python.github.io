@@ -50,7 +50,10 @@
 <li><strong>Installation</strong>: pip install pywin32</li>
 </ul>
 </aside>
-<p>Create Outlook Appointment</p>
+<p><strong>Create Outlook Appointment</strong></p>
+<ul>
+<li><em>CreateItem </em>property (0: Email, 1: appointment)</li>
+</ul>
 <pre><code>import win32com.client
 
 #Create and send appointment
@@ -65,12 +68,102 @@ appt.Location = &#34;Location Name&#34;
 # Only after changing the meeting status recipients can be added
 appt.MeetingStatus = 1
 
-appt.Recipients.Add(&#34;kctan73@yahoo.com&#34;) # Don&#39;t end ; as delimiter
+appt.Recipients.Add(&#34;someuser@yahoo.com&#34;) # Don&#39;t end ; as delimiter
 
 appt.Save()
 appt.Send()
 </code></pre>
-<p class="image-container"><img alt="http://doc.pyschools.com/console\n" style="width: 320.00px" src="img\d0a7c3610ac964d7.png"></p>
+<p><strong>Delete Outlook Appointment</strong></p>
+<aside class="warning"><p>Use with care, do not delete all your appointments!</p>
+<ul>
+<li>Use the <strong><em>Subject </em></strong>property to select the relevant appointment</li>
+</ul>
+</aside>
+<pre><code>import win32com.client
+
+#Delete appointment
+outlook = win32com.client.Dispatch(&#34;Outlook.Application&#34;).GetNamespace(&#34;MAPI&#34;)
+calendar = outlook.GetDefaultFolder(9)
+
+for appointment in appointments:
+    if (appointment.Subject == &#34;Subject of the meeting&#34;): 
+        appointment.Delete()
+
+
+</code></pre>
+<p><strong>Send Email using Outlook</strong></p>
+<ul>
+<li>Email can be formatted using html</li>
+<li>Absolute path needs to be provided for the location of the attachment</li>
+</ul>
+<pre><code>import win32com.client
+
+subject = &#39;email subject&#39;
+body = &#39;&lt;html&gt;&lt;body&gt;&#39; + &#39;test message&#39; + &#39;&lt;/body&gt;&lt;/html&gt;&#39;
+recipient = &#39;some_user@yahoo.com&#39;
+attachments = [&#34;D:\\abc.txt&#34;]
+
+#Create and send email
+olMailItem = 0x0
+obj = win32com.client.Dispatch(&#34;Outlook.Application&#34;)
+newMail = obj.CreateItem(olMailItem)
+newMail.Subject = subject
+newMail.HTMLBody = body
+#newMail.Body = body
+newMail.To = recipient
+
+for location in attachments:
+   newMail.Attachments.Add(Source=location)
+
+newMail.display()
+newMail.Send()
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Web Automation with Selenium" duration="0">
+        <p>Reading resources for Selenium: <a href="https://selenium-python.readthedocs.io/installation.html#introduction" target="_blank">https://selenium-python.readthedocs.io</a></p>
+<p><strong>Use Case: Sending WhatsApp Message using Web WhatsApp</strong></p>
+<p>This is a 4 steps process: </p>
+<ol type="1" start="1">
+<li>Go to <a href="https://api.whatsapp.com/send?phone=6596201234&text=hello" target="_blank">https://api.whatsapp.com/send?phone=6596201234&amp;text=hello</a></li>
+<li>Click on the &#34;Send&#34; button</li>
+<li>Click on &#34;use WhatsApp Web&#34; link [You will be prompted to login]</li>
+<li>Select the Chat TextField, Click on the Enter key to send the message</li>
+</ol>
+<pre><code>from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+
+driver = webdriver.Chrome()  # Optional argument, if not specified will search path.
+
+# construct the whatsapp message
+# phone number
+# message -- need to be urlencoded
+message = &#34;hello&#34;
+driver.get(&#34;https://api.whatsapp.com/send?phone=6596201234&amp;text=&#34;+ message)
+
+# click on send button
+elem = driver.find_element_by_id(&#34;action-button&#34;)
+elem.send_keys(Keys.RETURN)
+
+# click on the use WhatsApp Link
+driver.implicitly_wait(3) # seconds
+elem = driver.find_element_by_link_text(&#34;use WhatsApp Web&#34;)
+actions = ActionChains(driver)
+actions.click(elem)
+actions.perform()
+
+# webpage redirected to web.whatsapp.com
+# it takes a while for the page to load
+driver.implicitly_wait(10) # seconds
+
+# the selector can be found using &#39;right-click-&gt;Inspect&#39; in Chrome browser
+# In the copy the chrome developer window, right-click-&gt;copy-&gt;Copy Selector
+elem = driver.find_element_by_css_selector(&#34;#main &gt; footer &gt; div._3pkkz.V42si.copyable-area &gt; div._1Plpp &gt; div &gt; div._2S1VP.copyable-text.selectable-text&#34;)
+elem.send_keys(Keys.RETURN)
+</code></pre>
 
 
       </google-codelab-step>
