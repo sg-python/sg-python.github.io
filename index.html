@@ -50,7 +50,7 @@
 <li><strong>Installation</strong>: pip install pywin32</li>
 </ul>
 </aside>
-<p><strong>Create Outlook Appointment</strong></p>
+<p><strong>Use Case: Create Outlook Appointment</strong></p>
 <ul>
 <li><em>CreateItem </em>property (0: Email, 1: appointment)</li>
 </ul>
@@ -73,7 +73,7 @@ appt.Recipients.Add(&#34;someuser@yahoo.com&#34;) # Don&#39;t end ; as delimiter
 appt.Save()
 appt.Send()
 </code></pre>
-<p><strong>Delete Outlook Appointment</strong></p>
+<p><strong>Use Case: Delete Outlook Appointment</strong></p>
 <aside class="warning"><p>Use with care, do not delete all your appointments!</p>
 <ul>
 <li>Use the <strong><em>Subject </em></strong>property to select the relevant appointment</li>
@@ -91,7 +91,7 @@ for appointment in appointments:
 
 
 </code></pre>
-<p><strong>Send Email using Outlook</strong></p>
+<p><strong>Use Case: Send Email using Outlook</strong></p>
 <ul>
 <li>Email can be formatted using html</li>
 <li>Absolute path needs to be provided for the location of the attachment</li>
@@ -123,7 +123,13 @@ newMail.Send()
       </google-codelab-step>
     
       <google-codelab-step label="Web Automation with Selenium" duration="0">
-        <p>Reading resources for Selenium: <a href="https://selenium-python.readthedocs.io/installation.html#introduction" target="_blank">https://selenium-python.readthedocs.io</a></p>
+        <aside class="special"><p>Reading resources for Selenium: <a href="https://selenium-python.readthedocs.io/installation.html#introduction" target="_blank">https://selenium-python.readthedocs.io</a></p>
+<p>Library required: selenium</p>
+<ul>
+<li><strong>Installation</strong>: pip install selenium</li>
+<li>Web driver is required for the different browser</li>
+</ul>
+</aside>
 <p><strong>Use Case: Sending WhatsApp Message using Web WhatsApp</strong></p>
 <p>This is a 4 steps process: </p>
 <ol type="1" start="1">
