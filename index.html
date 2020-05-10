@@ -21,7 +21,7 @@
 </head>
 <body>
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
-  <google-codelab codelab-gaid="UA-165295929-1"
+  <google-codelab codelab-gaid="UA-166036181-1"
                   id="sg-python.github.io"
                   title="Python Resources"
                   environment="web"
@@ -41,6 +41,50 @@
     
       <google-codelab-step label="Day 1 Code" duration="0">
         
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Microsoft Outlook" duration="0">
+        <aside class="special"><p>Library required: pywin32</p>
+<ul>
+<li><strong>Installation</strong>: pip install pywin32</li>
+</ul>
+</aside>
+<p>Create Outlook Appointment</p>
+<pre><code>import win32com.client
+
+#Create and send appointment
+outlook = win32com.client.Dispatch(&#34;Outlook.Application&#34;)
+appt = outlook.CreateItem(1) # AppointmentItem, 0 - Email
+appt.Start = &#34;2020-05-09 16:10&#34; # yyyy-MM-dd hh:mm
+appt.Subject = &#34;Subject of the meeting&#34;
+appt.Duration = 60 # In minutes (60 Minutes)
+appt.Location = &#34;Location Name&#34;
+
+# 1 - olMeeting; Changing the appointment to meeting.
+# Only after changing the meeting status recipients can be added
+appt.MeetingStatus = 1
+
+appt.Recipients.Add(&#34;kctan73@yahoo.com&#34;) # Don&#39;t end ; as delimiter
+
+appt.Save()
+appt.Send()
+</code></pre>
+<p class="image-container"><img alt="http://doc.pyschools.com/console\n" style="width: 320.00px" src="img\d0a7c3610ac964d7.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Survey" duration="0">
+        <google-codelab-survey survey-id="sg-python.github.io-1">
+<h4>What do you like about python?</h4>
+<paper-radio-group>
+<paper-radio-button>Easy to learn</paper-radio-button>
+<paper-radio-button>Powerful</paper-radio-button>
+<paper-radio-button>Free</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+
 
       </google-codelab-step>
     
