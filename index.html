@@ -107,6 +107,36 @@ workbook.save(&#34;test.xlsx&#34;)
 <li><a href="https://pbpython.com/pandas-pivot-report.html" target="_blank">https://pbpython.com/pandas-pivot-report.html</a></li>
 </ul>
 </aside>
+<p>This can be broken down into the following steps:</p>
+<ol type="1" start="1">
+<li>Load an Excel Spreadsheet into a <em>dataframe </em></li>
+<li>Use <strong>pivot_table()</strong> function to create <em>pivot table</em> from the dataframe</li>
+<li>Use <strong>xs()</strong> function to divide the pivot table into multiple section</li>
+<li>Save each segment of the dataframe into a separate sheet in the Excel file</li>
+</ol>
+<pre><code>import pandas as pd
+import numpy as np
+
+# Excel file has 3 columns: school, year, score
+df = pd.read_excel(&#34;rp-quiz.xlsx&#34;)
+
+# Assuming that you are familiar with pivot table in excel
+# index refers to the row
+pvt = pd.pivot_table(df,index=[&#34;school&#34;, &#34;year&#34;], values=[&#34;score&#34;], aggfunc=[np.mean,len], margins=False)
+
+# get unique value for the index for each level
+print(pvt.index.get_level_values(0).unique()) # index level 0 is schools
+print(pvt.index.get_level_values(1).unique()) # index level 1 is year
+
+writer = pd.ExcelWriter(&#39;output.xlsx&#39;)
+
+# xs &lt;-- cross-section is for spliting a dataframe into sub-section
+for school in pvt.index.get_level_values(0).unique():
+   temp_df = pvt.xs(school, level=0)
+   temp_df.to_excel(writer,school) # 2nd argument is for the Excel Sheet
+
+writer.save()
+</code></pre>
 
 
       </google-codelab-step>
