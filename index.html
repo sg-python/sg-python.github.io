@@ -28,7 +28,17 @@
                   feedback-link="https://sg-python.github.io">
     
       <google-codelab-step label="Introductory Programming using Python" duration="0">
-        <aside class="warning"><ul>
+        <p>Sample for survey</p>
+<google-codelab-survey survey-id="sg-python.github.io-1">
+<h4>What do you like about python?</h4>
+<paper-radio-group>
+<paper-radio-button>Easy to learn</paper-radio-button>
+<paper-radio-button>Powerful</paper-radio-button>
+<paper-radio-button>Free</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+<p>Sample for warning</p>
+<aside class="warning"><ul>
 <li>Technical – 30%</li>
 <li>Concept and Approach – 30%</li>
 <li>Creativity and Uniqueness – 30%</li>
@@ -36,11 +46,6 @@
 </ul>
 </aside>
 
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Day 1 Code" duration="0">
-        
 
       </google-codelab-step>
     
@@ -122,7 +127,8 @@ df = pd.read_excel(&#34;rp-quiz.xlsx&#34;)
 
 # Assuming that you are familiar with pivot table in excel
 # index refers to the row
-pvt = pd.pivot_table(df,index=[&#34;school&#34;, &#34;year&#34;], values=[&#34;score&#34;], aggfunc=[np.mean,len], margins=False)
+pvt = pd.pivot_table(df,index=[&#34;school&#34;, &#34;year&#34;], values=[&#34;score&#34;], 
+aggfunc=[np.mean,len], margins=False)
 
 # get unique value for the index for each level
 print(pvt.index.get_level_values(0).unique()) # index level 0 is schools
@@ -267,19 +273,6 @@ driver.implicitly_wait(10) # seconds
 elem = driver.find_element_by_css_selector(&#34;#main &gt; footer &gt; div._3pkkz.V42si.copyable-area &gt; div._1Plpp &gt; div &gt; div._2S1VP.copyable-text.selectable-text&#34;)
 elem.send_keys(Keys.RETURN)
 </code></pre>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Survey" duration="0">
-        <google-codelab-survey survey-id="sg-python.github.io-1">
-<h4>What do you like about python?</h4>
-<paper-radio-group>
-<paper-radio-button>Easy to learn</paper-radio-button>
-<paper-radio-button>Powerful</paper-radio-button>
-<paper-radio-button>Free</paper-radio-button>
-</paper-radio-group>
-</google-codelab-survey>
 
 
       </google-codelab-step>
