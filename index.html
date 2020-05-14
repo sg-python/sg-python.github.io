@@ -44,6 +44,73 @@
 
       </google-codelab-step>
     
+      <google-codelab-step label="Excel" duration="0">
+        <aside class="special"><p>Library required: openpyxl</p>
+<ul>
+<li><strong>Installation</strong>: pip install openpyxl</li>
+<li><strong>Documentation</strong>: <a href="https://openpyxl.readthedocs.io/en/stable/index.html" target="_blank">https://openpyxl.readthedocs.io/en/stable/index.html</a> </li>
+</ul>
+</aside>
+<p><strong>Use Case: Create Excel File</strong></p>
+<p>This can be broken down into the following steps:</p>
+<ol type="1" start="1">
+<li>Create workbook</li>
+<li>Get the worksheet</li>
+<li>Prepare the data in <em>list </em>data structure</li>
+<li>Iterate through the list, and update the cell value</li>
+<li>Save the workbook</li>
+</ol>
+<pre><code>import openpyxl
+
+#step 1
+workbook = openpyxl.Workbook()
+
+#step 2
+#get the default sheet
+sheet=workbook[&#34;Sheet&#34;]
+
+#step 3
+#create a list of tuples as data source
+data = [
+   [225.7,&#39;Gone with the Wind&#39;,&#39;Victor Fleming&#39;],
+   [194.4, &#39;Star Wars&#39;, &#39;George Lucas&#39;],
+   [161.0, &#39;ET: The Extraterrestrial&#39;, &#39;Steven Spielberg&#39;]
+]
+
+#step 4
+#fill up the row and col from the list data
+for i, statN in enumerate(data):
+   for j, item in enumerate(statN):
+       sheet.cell(row=i+1, column=j+1).value = item
+
+#this approach is easier for learning
+#not feasible if the list has many items
+&#39;&#39;&#39;   
+#update value into cell
+for row, (admissions,name, director) in enumerate(data,1):
+   sheet[&#39;A{}&#39;.format(row)].value = director
+   sheet[&#39;B{}&#39;.format(row)].value = name
+&#39;&#39;&#39;
+
+#step 5
+#save the spreadsheet
+workbook.save(&#34;test.xlsx&#34;)
+</code></pre>
+<p><strong>Use Case: Create Pivot Table</strong></p>
+<aside class="special"><p>Library required: pandas, numpy</p>
+<ul>
+<li><strong>Installation</strong>: pip install numpy pandas</li>
+</ul>
+<p>Useful resources: </p>
+<ul>
+<li><a href="https://pbpython.com/pandas-pivot-table-explained.html" target="_blank">https://pbpython.com/pandas-pivot-table-explained.html</a> </li>
+<li><a href="https://pbpython.com/pandas-pivot-report.html" target="_blank">https://pbpython.com/pandas-pivot-report.html</a></li>
+</ul>
+</aside>
+
+
+      </google-codelab-step>
+    
       <google-codelab-step label="Microsoft Outlook" duration="0">
         <aside class="special"><p>Library required: pywin32</p>
 <ul>
@@ -132,7 +199,7 @@ newMail.Send()
 </aside>
 <p><strong>Use Case: Sending WhatsApp Message using Web WhatsApp</strong></p>
 <p>This is a 4 steps process: </p>
-<ol type="1" start="1">
+<ol type="1" start="6">
 <li>Go to <a href="https://api.whatsapp.com/send?phone=6596201234&text=hello" target="_blank">https://api.whatsapp.com/send?phone=6596201234&amp;text=hello</a></li>
 <li>Click on the &#34;Send&#34; button</li>
 <li>Click on &#34;use WhatsApp Web&#34; link [You will be prompted to login]</li>
@@ -318,6 +385,23 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 SyntaxError: not a chance
 
 </code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Learning Resources" duration="0">
+        <h4 is-upgraded>Practice Website</h4>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Description</p>
+</td><td colspan="1" rowspan="1"><p>URL</p>
+</td><td colspan="1" rowspan="1"><p>Remark</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Begin Python</p>
+</td><td colspan="1" rowspan="1"><p><a href="http://beginpython.com" target="_blank">http://beginpython.com</a> </p>
+</td><td colspan="1" rowspan="1"><p>To learn basic concept of programming</p>
+</td></tr>
+</table>
+<p>Pyschools <a href="https://pyschools.com" target="_blank">https://pyschools.com</a> </p>
 
 
       </google-codelab-step>
