@@ -9,7 +9,7 @@
   <title>Python Resources</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
   <style>
     .success {
       color: #1e8e3e;
@@ -37,7 +37,23 @@
 <paper-radio-button>Free</paper-radio-button>
 </paper-radio-group>
 </google-codelab-survey>
-<iframe class="youtube-video" src="https://repl.it/@kokcheng/chart"></iframe>
+<p>I am placing a repl iframe here</p>
+<iframe class="embedded-iframe" src="https://repl.it/@kokcheng/01-Files"></iframe>
+<p>End of repl iframe here</p>
+<p>Youtube video here</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p><strong>Description</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Passing Data</p>
+<ul>
+<li>Pass data from VCA to VCB</li>
+<li>Use prepare(for:sender:)</li>
+</ul>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><iframe class="youtube-video" src="https://www.youtube.com/embed/E0yFkbmO3No?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</td></tr>
+</table>
+<p><a href="https://youtu.be/E0yFkbmO3No" target="_blank">https://youtu.be/E0yFkbmO3No</a></p>
 <p>Sample for warning</p>
 <aside class="warning"><ul>
 <li>Technical – 30%</li>
@@ -148,6 +164,37 @@ writer.save()
 
       </google-codelab-step>
     
+      <google-codelab-step label="Pandas" duration="0">
+        <aside class="special"><p>Library required: matplotlib, pandas</p>
+<ul>
+<li><strong>Installation</strong>: pip install matplotlib</li>
+<li>Resources</li>
+<li><a href="http://queirozf.com/entries/pandas-dataframe-plot-examples-with-matplotlib-pyplot" target="_blank">http://queirozf.com/entries/pandas-dataframe-plot-examples-with-matplotlib-pyplot</a></li>
+<li><a href="https://towardsdatascience.com/9-pandas-visualizations-techniques-for-effective-data-analysis-fc17feb651db" target="_blank">https://towardsdatascience.com/9-pandas-visualizations-techniques-for-effective-data-analysis-fc17feb651db</a></li>
+</ul>
+</aside>
+<p><strong>Use Case: Plot a Barchart</strong></p>
+<pre><code>import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.DataFrame({
+   &#39;name&#39;:[&#39;john&#39;,&#39;mary&#39;,&#39;peter&#39;,&#39;jeff&#39;,&#39;bill&#39;,&#39;lisa&#39;,&#39;jose&#39;],
+   &#39;age&#39;:[23,78,22,19,45,33,20]
+})
+
+df.plot.bar(x=&#39;name&#39;,y=&#39;age&#39;)
+plt.show()
+
+# use show() or savefig(), not both
+plt.savefig(&#39;output.png&#39;)
+</code></pre>
+<p>Output: </p>
+<p class="image-container"><img style="width: 342.47px" src="img\\8fba037685eb63c8.png"></p>
+<p>Plotting with DataFrame</p>
+
+
+      </google-codelab-step>
+    
       <google-codelab-step label="Microsoft Outlook" duration="0">
         <aside class="special"><p>Library required: pywin32</p>
 <ul>
@@ -226,6 +273,18 @@ newMail.Send()
 
       </google-codelab-step>
     
+      <google-codelab-step label="TODO:" duration="0">
+        <p>FIND EMAIL</p>
+<p><a href="https://stackoverflow.com/questions/58339105/find-specific-mail-in-outlook-by-title" target="_blank">https://stackoverflow.com/questions/58339105/find-specific-mail-in-outlook-by-title</a></p>
+<p>Html email</p>
+<p>Attach image in html email:</p>
+<ul>
+<li>See the code for the grit foler</li>
+</ul>
+
+
+      </google-codelab-step>
+    
       <google-codelab-step label="Web Automation with Selenium" duration="0">
         <aside class="special"><p>Reading resources for Selenium: <a href="https://selenium-python.readthedocs.io/installation.html#introduction" target="_blank">https://selenium-python.readthedocs.io</a></p>
 <p>Library required: selenium</p>
@@ -233,6 +292,8 @@ newMail.Send()
 <li><strong>Installation</strong>: pip install selenium</li>
 <li>Web driver is required for the different browser</li>
 </ul>
+<p>A wrapper for WhatsApp</p>
+<p><a href="https://github.com/mukulhase/WebWhatsapp-Wrapper" target="_blank">https://github.com/mukulhase/WebWhatsapp-Wrapper</a></p>
 </aside>
 <p><strong>Use Case: Sending WhatsApp Message using Web WhatsApp</strong></p>
 <p>This is a 4 steps process: </p>
@@ -274,6 +335,87 @@ driver.implicitly_wait(10) # seconds
 elem = driver.find_element_by_css_selector(&#34;#main &gt; footer &gt; div._3pkkz.V42si.copyable-area &gt; div._1Plpp &gt; div &gt; div._2S1VP.copyable-text.selectable-text&#34;)
 elem.send_keys(Keys.RETURN)
 </code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="WhatsApp API Wrapper" duration="0">
+        <aside class="special"><p>Reading resources for schedule :<a href="https://github.com/mukulhase/WebWhatsapp-Wrapper" target="_blank">https://github.com/mukulhase/WebWhatsapp-Wrapper</a> </p>
+<p>Library required: webwhatsapi</p>
+<ul>
+<li><strong>Installation</strong>: pip install webwhatsapi</li>
+</ul>
+</aside>
+<pre><code># usual if else statement
+if condition == True:
+    x = 1
+else: 
+    x = 0
+
+# single line alternative
+condition = True
+x = 1 if condition else 0
+
+print(x)</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Schedule Jobs" duration="0">
+        <aside class="special"><p>Reading resources for schedule :<a href="https://schedule.readthedocs.io/en/stable/" target="_blank">https://schedule.readthedocs.io/en/stable/</a></p>
+<p>Library required: schedule</p>
+<ul>
+<li><strong>Installation</strong>: pip install schedule</li>
+</ul>
+</aside>
+<p>Schedule tasks to run at a regular interval or at specific date and time. </p>
+<pre><code>import schedule
+import time
+
+def task1():
+    print(&#34;Doing task1......&#34;)
+    
+def task2():
+    print(&#34;Doing task 2......&#34;)
+
+schedule.every(1).minutes.do(task1)
+
+schedule.every(7).seconds.do(task2)
+
+#schedule.every().hour.do(job)
+#schedule.every().day.at(&#34;10:30&#34;).do(job)
+#schedule.every().monday.do(job)
+#schedule.every().wednesday.at(&#34;13:15&#34;).do(job)
+#schedule.every().minute.at(&#34;:17&#34;).do(job)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Jupyter Notebook" duration="0">
+        <aside class="special"><p>Reading resources for schedule :<a href="https://jupyter.org/index.html" target="_blank">https://jupyter.org/index.html</a> </p>
+<p>Library required: jupyterlab</p>
+<ul>
+<li><strong>Installation</strong>: pip install jupyterlab, notebook</li>
+</ul>
+</aside>
+<p>To run the notebook, go to command prompt:</p>
+<p>jupyter notebook</p>
+<p>A browser will be launched:</p>
+<p>More information about running the notebook can be found here:</p>
+<p><a href="https://jupyter.readthedocs.io/en/latest/running.html#running" target="_blank">https://jupyter.readthedocs.io/en/latest/running.html#running</a></p>
+<pre><code># specify a port
+jupyter notebook --port 9999
+
+
+# running without browser
+jupyter notebook --no-browser
+</code></pre>
+<p>By default, notebook created will be in C:\Users\&lt;user_id&gt;</p>
 
 
       </google-codelab-step>
@@ -402,7 +544,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 <p>Experience Antigravity</p>
 <pre><code>&gt;&gt;&gt; import antigravity
 </code></pre>
-<p class="image-container"><img style="width: 436.38px" src="img\198e37aee0df937e.png"></p>
+<p class="image-container"><img style="width: 436.38px" src="img\\5d7ed7686822861a.png"></p>
 <p>Braces</p>
 <pre><code>from __future__ import braces
   File &#34;&lt;input&gt;&#34;, line 1
@@ -424,9 +566,22 @@ SyntaxError: not a chance
 </td><td colspan="1" rowspan="1"><p><a href="http://beginpython.com" target="_blank">http://beginpython.com</a> </p>
 </td><td colspan="1" rowspan="1"><p>To learn basic concept of programming</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Pyschools </p>
-</td><td colspan="1" rowspan="1"><p><a href="https://pyschools.com" target="_blank">https://pyschools.com</a> </p>
-</td><td colspan="1" rowspan="1"><p>Extension of begin python website, with more advanced topics</p>
+</table>
+<table>
+<tr><td colspan="1" rowspan="1"><p><strong>Sno</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>URL</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>1</p>
+</td><td colspan="1" rowspan="1"><p><a href="https://apc01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.sololearn.com%2Fhome&data=04%7C01%7Ctan_kok_cheng%40rp.edu.sg%7Cb96be6efe2b0489be88808d92a314547%7Cf688b0d079f040a4864435fcdee9d0f3%7C0%7C0%7C637587213370931168%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=EpcyeWIp%2FzuO8UIMqX%2BniY7Dg%2FcI%2Fpy4zFnkECXnV6g%3D&reserved=0" target="_blank">https://www.sololearn.com/home</a></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>2</p>
+</td><td colspan="1" rowspan="1"><p><a href="https://apc01.safelinks.protection.outlook.com/?url=https%3A%2F%2Frealpython.com%2Fpython-first-steps%2F&data=04%7C01%7Ctan_kok_cheng%40rp.edu.sg%7Cb96be6efe2b0489be88808d92a314547%7Cf688b0d079f040a4864435fcdee9d0f3%7C0%7C0%7C637587213370931168%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=XEuq1BZ942p5d8gWvJHFCKJYLb7gVvtoDRNGK%2Fwfruk%3D&reserved=0" target="_blank">https://realpython.com/python-first-steps/</a></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>3</p>
+</td><td colspan="1" rowspan="1"><p><a href="https://apc01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.w3schools.com%2Fpython%2F&data=04%7C01%7Ctan_kok_cheng%40rp.edu.sg%7Cb96be6efe2b0489be88808d92a314547%7Cf688b0d079f040a4864435fcdee9d0f3%7C0%7C0%7C637587213370941155%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=yoZdq6Yq6h9To7E0YM02IKFpY9dn15xgMC1TVmfrm0g%3D&reserved=0" target="_blank">https://www.w3schools.com/python/</a></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>4</p>
+</td><td colspan="1" rowspan="1"><p><a href="https://apc01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.programiz.com%2Fpython-programming%2Ffirst-program&data=04%7C01%7Ctan_kok_cheng%40rp.edu.sg%7Cb96be6efe2b0489be88808d92a314547%7Cf688b0d079f040a4864435fcdee9d0f3%7C0%7C0%7C637587213370941155%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=r%2BEi%2FVQcuFocmVA75avZy1qsjeEZnWcI48zjbYv9SZ0%3D&reserved=0" target="_blank">https://www.programiz.com/python-programming/first-program</a></p>
 </td></tr>
 </table>
 
@@ -435,10 +590,11 @@ SyntaxError: not a chance
     
   </google-codelab>
 
-  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
 
 </body>
 </html>
